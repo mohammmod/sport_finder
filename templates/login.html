@@ -9,7 +9,8 @@
 
     <div class="fullscreen-bg">
         <video loop autoplay poster="img/videoframe.jpg" class="fullscreen-bg__video" id="runvideo">
-            <source src="/static/video1.mp4" />
+            <source src="/static/video1.mp4" vid.playbackRate = -1; />
+
         </video>
     </div>
 
@@ -36,8 +37,10 @@
             <button class = "btn btn-primary" type = "submit">Log In</button>
         </div>
 
-        <button onclick="playVid()" type="button">Play Video</button><br>
-        <button onclick="pauseVid()" type="button">Pause Video</button><br>
+        <div class="button">
+            <button onclick="playVid()" type="button" class = "btn btn-primary">Play Video</button>
+        <button onclick="pauseVid()" type="button" class = "btn btn-primary">Pause Video</button>
+        </div>
 
     </form>
 {% endblock %}

@@ -3,7 +3,7 @@ from flask_session import Session
 from tempfile import mkdtemp
 from werkzeug.exceptions import default_exceptions
 from werkzeug.security import check_password_hash, generate_password_hash
-from helpers import apology, login_required ,check_time
+from helpers import apology, login_required
 from data_base import User_Data
 
 # Configure application
@@ -140,8 +140,6 @@ def createvent():
         eventPlace = request.form.get("eventPlace")
         eventType = request.form.get("eventType")
         eventtime = request.form.get("eventtime")
-        if not check_time(eventDate):
-            return apology("please enter right time")
 
         if not eventName:
             return apology("please enter the event name")
@@ -156,19 +154,18 @@ def createvent():
             return apology("please enter the event type")
         # session["id"] = id
         new_event = sql_man.create_new_event(session["id"], eventDate, eventPlace, eventType, eventName,eventtime)
-        events = sql_man.get_available_events()
         ### retrun my page ###
-        return render_template("eventspage.html", events = events)
+        return render_template("start.html")
     else:
         return render_template("create.html")
 
-@app.route("/joinevent", methods=["GET", "POST"])
+"""@app.route("/joinevent", methods=["GET", "POST"])
 @login_required
 def joinevent():
     if request.method == "GET":
         events = sql_man.get_available_events()
         return render_template("eventspage.html", events = events)
-    return render_template("index.html")
+    return render_template("index.html")"""
 
 @app.route("/eventspage", methods=["GET", "POST"])
 @login_required
