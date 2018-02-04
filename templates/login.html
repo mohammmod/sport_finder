@@ -5,11 +5,26 @@
 {% endblock %}
 
 {% block main %}
+
+
     <div class="fullscreen-bg">
-        <video loop autoplay poster="img/videoframe.jpg" class="fullscreen-bg__video">
+        <video loop autoplay poster="img/videoframe.jpg" class="fullscreen-bg__video" id="runvideo">
             <source src="/static/video1.mp4" />
         </video>
     </div>
+
+    <script>
+        var vid = document.getElementById("runvideo");
+
+        function playVid() {
+            vid.play();
+        }
+
+        function pauseVid() {
+            vid.pause();
+        }
+    </script>
+
     <form action="/login" method="post">
         <div class="form-group">
             <input autocomplete="off" autofocus class="form-control" name="username" placeholder="Username" type="text"/>
@@ -20,5 +35,9 @@
         <div class = "login">
             <button class = "btn btn-primary" type = "submit">Log In</button>
         </div>
+
+        <button onclick="playVid()" type="button">Play Video</button><br>
+        <button onclick="pauseVid()" type="button">Pause Video</button><br>
+
     </form>
 {% endblock %}
