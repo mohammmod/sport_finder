@@ -5,17 +5,25 @@
 {% endblock %}
 
 {% block main %}
+
+    <body background = "static/dark.jpg">
+
+    </body>
+
     <form action="/myaccount" method="post">
         <div class="form-group">
-            name :{{name }}<button onclick="myFunction()">edit</button>
-            <input id = "myDIV"  autocomplete="off" autofocus class="form-control" name="username" placeholder="change user name" type="text"/><br><br>
-            email : {{email}} <input id = "myDIV" class="form-control" name="email" placeholder="email" type="email" id="valid_email" class="validate"/><br><br>
-            <input class="form-control" name="password" placeholder="Password" type="password"/><br><br>
-            <input class="form-control" name="confirmation" placeholder="password again" type="password"/><br><br>
-            <input class="form-control" name="old_password" placeholder="old password" type="password"/><br><br>
+            Name :<input id = "myDIV"  autocomplete="off" autofocus class="form-control" name="username" placeholder="change user name" type="text"/><br><br>
+            Email : <input id = "myDIV" class="form-control" name="email" placeholder="email" type="email" id="valid_email" class="validate"/><br><br>
+            Password :{{password}}<input class="form-control" name="password" placeholder="Password" type="password"/><br><br>
+           Confirmation :<input class="form-control" name="confirmation" placeholder="password again" type="password"/><br><br>
+            Old Password :<input class="form-control" name="old_password" placeholder="old password" type="password"/><br><br>
 
         </div>
-        <button class="btn btn-primary" type="submit">change</button>
+
+       <div class = "login">
+            <button class = "btn btn-primary" type = "submit">Change</button>
+        </div>
+    </form>
         <script>
             function myFunction() {
     var x = document.getElementById("myDIV");
