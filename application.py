@@ -154,18 +154,19 @@ def createvent():
             return apology("please enter the event type")
         # session["id"] = id
         new_event = sql_man.create_new_event(session["id"], eventDate, eventPlace, eventType, eventName,eventtime)
+        events = sql_man.get_available_events()
         ### retrun my page ###
-        return render_template("start.html")
+        return render_template("eventspage.html", events = events)
     else:
         return render_template("create.html")
 
-"""@app.route("/joinevent", methods=["GET", "POST"])
+@app.route("/joinevent", methods=["GET", "POST"])
 @login_required
 def joinevent():
     if request.method == "GET":
         events = sql_man.get_available_events()
         return render_template("eventspage.html", events = events)
-    return render_template("index.html")"""
+    return render_template("index.html")
 
 @app.route("/eventspage", methods=["GET", "POST"])
 @login_required
