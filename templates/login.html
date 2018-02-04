@@ -25,6 +25,26 @@
         }
     </script>
 
+    <style>
+.button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 5px 5px;
+    text-align: left;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+</style>
+</head>
+<body>
+
+<input type ="button" onclick="playVid()"  value="Input Button">Play Video</button><br>
+<input type ="button" onclick="pauseVid()" type="button" value="Input Button">Pause Video</button><br>>
+
     <form action="/login" method="post">
         <div class="form-group">
             <input autocomplete="off" autofocus class="form-control" name="username" placeholder="Username" type="text"/>
@@ -35,9 +55,6 @@
         <div class = "login">
             <button class = "btn btn-primary" type = "submit">Log In</button>
         </div>
-
-        <button onclick="playVid()" type="button">Play Video</button><br>
-        <button onclick="pauseVid()" type="button">Pause Video</button><br>
 
     </form>
 {% endblock %}
