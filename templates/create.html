@@ -10,6 +10,14 @@
         <label for="name">Name</label>
         <input type="text" class="form-control" id="name" name="eventName" placeholder="Enter name" />
     </div>
+
+    <body background = "/static/dark.jpg">
+
+    </body>
+
+
+    </div>
+
     <div class="form-group">
         <label for="location">Location</label>
         <input class="form-control placepicker"
@@ -28,10 +36,6 @@
         <label for="date">Date</label>
         <input type="date" class="form-control" name="eventDate" id="date" placeholder="Enter date" />
     </div>
-    <div class="form-group">
-        <label for="time">time</label>
-        <input type="time" class="form-control" name="eventtime" id="time" placeholder="Enter date" />
-    </div>
 
     <div class="form-group">
             <label for="type">Type</label>
@@ -41,7 +45,9 @@
     <input type="hidden" name="lat" id="lat" />
     <input type="hidden" name="lng" id="lng" />
 
-    <button class="btn btn-primary" action="/index" type="submit">Create</button>
+    <div class = "create">
+            <button class = "btn btn-primary" type = "submit">Create</button>
+        </div>
 </form>
 
 <script>

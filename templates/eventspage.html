@@ -5,37 +5,32 @@
 {% endblock %}
 
 {% block main %}
-<form action="/eventspage" method="post">
-    <table style="width:100%" class="table_style">
+    <table class="table">
         <thead>
           <tr>
             <th>Event</th>
             <th>Place</th>
             <th>Date</th>
             <th>Type</th>
+            <th>Join</th>
             <!--<th>Participants</th>-->
           </tr>
         </thead>
         <tbody>
-            {% for event in events %}
-          <tr>
-            <td><a href="/event/{{event.index_id}}">{{ event.eventname }}</a></td>
-            <td>{{ event.place }}</td>
-            <td>{{ event.date }}</td>
-            <td>{{ event.type }}</td>
-            <td>
-              <form name="join" method="post" action="/eventspage">
-                <button name="join" type="submit" action="/index" value="{{event.index_id}}">Join</button>
-              </form>
-            </td>
-            <td>
-              <form name="veiwDetails" method="post" action="/event">
-                <button name="veiwDetails" type="submit" action="/index" value="{{event}}">View details</button>
-              </form>
-            </td>
-          </tr>
-            {% endfor %}
+          {% for event in events %}
+            <tr>
+              <td>{{ event.eventname }}</td>
+              <td>{{ event.place }}</td>
+              <td>{{ event.date }}</td>
+              <td>{{ event.type }}</td>
+              <!--<td>{{ event.participant }}</td>-->
+              <td>
+                <form name="join" method="post" action="/eventspage">
+                  <button class="btn btn-secondary btn-sm" name="join" type="submit" action="/index" value="{{event.index_id}}">Join</button>
+                </form>
+              </td>
+            </tr>
+          {% endfor %}
         </tbody>
     </table>
-</form>
 {% endblock %}
