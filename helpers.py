@@ -1,5 +1,7 @@
 import csv
 import urllib.request
+import datetime
+
 
 from flask import redirect, render_template, request, session
 from functools import wraps
@@ -32,3 +34,21 @@ def login_required(f):
             return redirect("/start")
         return f(*args, **kwargs)
     return decorated_function
+
+
+def check_time(year):
+
+    date = []
+    date = year.split("-")
+
+
+    now = datetime.datetime.now()
+    print(date[0],date[1],date[2])
+    if int(date[0]) < int(now.year) :
+        return False
+    if int(date[1]) < int(now.month):
+        return False
+    if int(date[2])<int(now.day):
+        return False
+    return True
+
