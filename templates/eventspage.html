@@ -19,7 +19,7 @@
         <tbody>
           {% for event in events %}
             <tr>
-              <td>{{ event.eventname }}</td>
+              <td><a href="/event/{{event.index_id}}">{{ event.eventname }}<a/></td>
               <td>{{ event.place }}</td>
               <td>{{ event.date }}</td>
               <td>{{ event.type }}</td>
