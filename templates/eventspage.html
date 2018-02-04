@@ -16,6 +16,7 @@
             <th>Date</th>
             <th>Type</th>
             <th>Join</th>
+            <th>Time</th>
           </tr>
         </thead>
         <tbody>
@@ -25,6 +26,7 @@
               <td>{{ event.place }}</td>
               <td>{{ event.date }}</td>
               <td>{{ event.type }}</td>
+              <td>{{ event.time }}</td>
               <td>
                 <form name="join" method="post" action="/eventspage">
                   <button class="btn btn-secondary btn-sm" name="join" type="submit" action="/index" value="{{event.index_id}}">Join</button>
