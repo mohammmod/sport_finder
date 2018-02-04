@@ -251,4 +251,4 @@ def myaccount():
                 flash("password changed")
         return redirect("/start")
    # done.
-    return render_template("myaccount.html",name = users[0]["username"], email = users[0]["email"])
+    return render_template("myaccount.html")
