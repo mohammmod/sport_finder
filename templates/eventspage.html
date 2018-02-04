@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block title %}
-    Index
+    events
 {% endblock %}
 
 {% block main %}
@@ -13,7 +13,6 @@
             <th>Date</th>
             <th>Type</th>
             <th>Join</th>
-            <!--<th>Participants</th>-->
           </tr>
         </thead>
         <tbody>
@@ -23,7 +22,6 @@
               <td>{{ event.place }}</td>
               <td>{{ event.date }}</td>
               <td>{{ event.type }}</td>
-              <!--<td>{{ event.participant }}</td>-->
               <td>
                 <form name="join" method="post" action="/eventspage">
                   <button class="btn btn-secondary btn-sm" name="join" type="submit" action="/index" value="{{event.index_id}}">Join</button>
