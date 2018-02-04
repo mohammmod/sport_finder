@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    myaccount
+{% endblock %}
+
+{% block main %}
+    <form action="/myaccount" method="post">
+        <div class="form-group">
+            name :{{name }}<button onclick="myFunction()">edit</button>
+            <input id = "myDIV"  autocomplete="off" autofocus class="form-control" name="username" placeholder="change user name" type="text"/><br><br>
+            email : {{email}} <input id = "myDIV" class="form-control" name="email" placeholder="email" type="email" id="valid_email" class="validate"/><br><br>
+            <input class="form-control" name="password" placeholder="Password" type="password"/><br><br>
+            <input class="form-control" name="confirmation" placeholder="password again" type="password"/><br><br>
+            <input class="form-control" name="old_password" placeholder="old password" type="password"/><br><br>
+
+        </div>
+        <button class="btn btn-primary" type="submit">change</button>
+        <script>
+            function myFunction() {
+    var x = document.getElementById("myDIV");
+    if (x.style.display !== "none") {
+        x.style.display = "none";
+    } else if (x.style.display === "none") {
+        x.style.display = "block";
+    }
+}
+        </script>
+    </form>
+{% endblock %}

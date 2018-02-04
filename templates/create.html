@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Create Event
+{% endblock %}
+
+{% block main %}
+<form action="/create" method="post">
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name" name="eventName" placeholder="Enter name" />
+    </div>
+    <div class="form-group">
+        <label for="location">Location</label>
+        <input class="form-control placepicker"
+            id="place"
+            name="eventPlace"
+            data-map-container-id="location-map-container"
+            data-latitude-input="lat"
+            data-longitude-input="lng"
+            placeholder="Enter a location"
+        />
+        <div id="location-map-container" class="collapse">
+            <div class="placepicker-map thumbnail"></div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="date">Date</label>
+        <input type="date" class="form-control" name="eventDate" id="date" placeholder="Enter date" />
+    </div>
+    <div class="form-group">
+        <label for="time">time</label>
+        <input type="time" class="form-control" name="eventtime" id="time" placeholder="Enter date" />
+    </div>
+
+    <div class="form-group">
+            <label for="type">Type</label>
+            <input type="text" class="form-control" name="eventType" id="type" placeholder="Enter type" />
+        </div>
+
+    <input type="hidden" name="lat" id="lat" />
+    <input type="hidden" name="lng" id="lng" />
+
+    <button class="btn btn-primary" action="/index" type="submit">Create</button>
+</form>
+
+<script>
+    const placepicker = $('.placepicker').placepicker({
+        placeChanged: function () {
+            const latLng = this.getLatLng();
+            $('#lat').val(latLng.lat());
+            $('#lng').val(latLng.lng());
+        }
+    });
+</script>
+
+
+{% endblock %}
