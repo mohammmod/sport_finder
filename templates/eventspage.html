@@ -23,7 +23,7 @@
           {% for event in events %}
             <tr>
               <td><a href="/event/{{event.index_id}}">{{ event.eventname }}<a/></td>
-              <td>{{ event.place }}</td>
+             <td>{{ event.place }}</td>
               <td>{{ event.date }}</td>
               <td>{{ event.type }}</td>
               <td>{{ event.time }}</td>
@@ -37,3 +37,12 @@
         </tbody>
     </table>
 {% endblock %}
+
+<!--a href= "#"
+            id="place"
+            name="eventPlace"
+            data-map-container-id="location-map-container"
+            data-latitude-input="lat"
+            data-longitude-input="lng"
+            placeholder="Enter a location"
+        /-->

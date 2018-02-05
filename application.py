@@ -28,11 +28,15 @@ Session(app)
 sql_man = User_Data()
 
 @app.route("/",methods=["GET", "POST"])
+@login_required
 def index():
-    return render_template("login.html")
+    if request.method == "GET":
+        return render_template("start.html")
+    return render_template("mypage.html")
 
 
 @app.route("/logout")
+@login_required
 def logout():
     """Log user out"""
 
@@ -73,7 +77,7 @@ def login():
 
         # Redirect user to home page
         flash("welcome " + username)
-        return redirect("/start")
+        return redirect("/")
     # User reached route via GET (as by clicking a link or via redirect)
     else:
         return render_template("login.html")
@@ -118,17 +122,15 @@ def register():
 
         # Redirect user to register page
         flash("Welcome " + username)
-        return redirect("/start")
+        return redirect("/")
     else:
         return render_template("register.html")
 
 
-@app.route("/start", methods=["GET", "POST"])
-@login_required
-def start():
-    if request.method == "GET":
-        return render_template("start.html")
-    return render_template("mypage.html")
+#@app.route("/start", methods=["GET", "POST"])
+#@login_required
+#def start():
+
 
 @app.route("/create", methods=["GET", "POST"])
 @login_required
@@ -242,6 +244,6 @@ def myaccount():
             if len(hashee) != 1 or not check_password_hash(hashee[0]["hash"], request.form.get("oldpassword")):
                 sql_man.update_user_password(password,session["id"])
                 flash("password changed")
-        return redirect("/start")
+        return redirect("/")
    # done.
     return render_template("myaccount.html",name = users[0]["username"], email = users[0]["email"])

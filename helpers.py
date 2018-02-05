@@ -31,7 +31,7 @@ def login_required(f):
     @wraps(f)
     def decorated_function(*args, **kwargs):
         if session.get("id") is None:
-            return redirect("/start")
+            return redirect("/login")
         return f(*args, **kwargs)
     return decorated_function
 
@@ -43,7 +43,7 @@ def check_time(year):
 
 
     now = datetime.datetime.now()
-    print(date[0],date[1],date[2])
+#    print(date[0],date[1],date[2])
     if int(date[0]) < int(now.year) :
         return False
     if int(date[1]) < int(now.month):
