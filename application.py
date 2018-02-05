@@ -159,13 +159,6 @@ def createvent():
     else:
         return render_template("create.html")
 
-"""@app.route("/joinevent", methods=["GET", "POST"])
-@login_required
-def joinevent():
-    if request.method == "GET":
-        events = sql_man.get_available_events()
-        return render_template("eventspage.html", events = events)
-    return render_template("index.html")"""
 
 @app.route("/eventspage", methods=["GET", "POST"])
 @login_required
@@ -198,6 +191,7 @@ def eventspage():
     else:
         return render_template("eventspage.html", events = events)
 
+
 @app.route("/mypage", methods=["GET", "POST"])
 @login_required
 def get_mypage():
@@ -220,7 +214,6 @@ def event(index_id):
     event = sql_man.show_details(index_id)
     participants = sql_man.show_participants(index_id)
 
-    #print(participants[0]["user_name"])
     return render_template("event.html", event = event, participants=participants)
 
 
